@@ -1,0 +1,8 @@
+blog
+.env
+.env/
+.venv/
+__pycache__/
+db.sqlite3
+pythonenv*
+__pycache__
