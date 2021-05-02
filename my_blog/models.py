@@ -1,8 +1,9 @@
 from django.db import models
+from django.urls import reverse
 
 
 # Create your models here.
-class post(models.Model):
+class Post(models.Model):
     title = models.CharField(max_length=200)
     author = models.ForeignKey(
         'auth.User', 
@@ -12,3 +13,6 @@ class post(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('post_detail', args=[str(self.id)])
