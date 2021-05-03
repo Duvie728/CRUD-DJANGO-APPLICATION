@@ -1,10 +1,26 @@
 {% extends 'base.html' %}
 
+{% block title %}Post{% endblock title %}
+
 {% block content %}
    {% for post in object_list %} 
    <div class="post-entry">
        <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
+       <!-- Changes start here! -->
        <p>{{ post.body }}</p>
    </div>
+   <div class="card-footer">
+       {% for comment in post.comments.all %}
+       <p>
+           <span class="font-weight-bold">
+               {{ comment.author }} &middot;
+           </span>
+           {{ comment }}
+       </p>
+       {% endfor %}
+   </div>
+   <!-- Changes end here! -->
+  </div>
+   <br />
    {% endfor %} 
 {% endblock content %} 
