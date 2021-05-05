@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Comment{% endblock %}
+{% block content %} 
+
+{% if user.is_authenticated %}
+<h2>Add Comment...</h2>
+<br/><br/>
+
+<div class="form-group">
+<form method="post">{% csrf_token %} 
+    {{ form.as_p }}
+    <button class="btn
+    btn-secondary">Add Comment</button>
+    </form>
+    action = "{% url 'add_comment' post.pk%}"
+</div>
+
+{% else %}
+    <p>You are not logged in.</p>
+    {% endif %}
+    {% endblock content %}
+
+   

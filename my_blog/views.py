@@ -1,4 +1,4 @@
-#from django.shortcuts import render
+from django.shortcuts import render
 
 from django.contrib.auth.mixins import (
     LoginRequiredMixin,
@@ -9,7 +9,7 @@ from django.views.generic.edit import (
     CreateView, UpdateView, DeleteView
 )
 from django.urls import reverse_lazy
-from .models import Post
+from .models import Post, Comment
 
 # Create your views here.
 class BlogListView(LoginRequiredMixin, ListView):
@@ -50,3 +50,17 @@ class BlogCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+
+class BlogCommentView(LoginRequiredMixin, CreateView):
+    model = Comment
+    template_name = 'add_comment.html'
+    fields = ['comment', 'author']
+        
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+        #comment=form.save(commit=False)
+        #comment.post=self.kwargs.get(pk)
+        #comment.save()
+        #super().form_valid(form)
