@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 # 
  
 
 ## CRUD-DJANGO-BLOG
+=======
+
+#  PROJECT NAME
+CRUD-DJANGO-BLOG
+>>>>>>> 81e066b1b9732d9a50e1393cb5f1e7e40808c70b
 
 # Description:
 This Blog application was  built using [Django Framework](https://www.django-rest-framework.org/) and  hosted on Heroku during production(https://duvie-blog.herokuapp.com) 
@@ -47,11 +53,24 @@ Elizabeth Eli (Duvie728)
 
 # Login Credentials
 
+<<<<<<< HEAD
 ```
 {
   "email": "admin@crypto.com",
   "password": "admin"
+=======
+Shout to Zuri team for the priviledge to learn coding. thank to all the mentor.
+God bless you
+
+```
+{
+  "
+>>>>>>> 81e066b1b9732d9a50e1393cb5f1e7e40808c70b
 }
 
 ```
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 81e066b1b9732d9a50e1393cb5f1e7e40808c70b
