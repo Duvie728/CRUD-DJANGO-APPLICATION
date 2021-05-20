@@ -31,8 +31,8 @@ This Project requires the following Versions:
 # Installation:
 To install all dependencies in this project, open your terminal and run:
 ```
-pipenv install
-py -m 
+
+py -m pip install.....
 python manage.py runserver
 ```
 
@@ -53,14 +53,10 @@ Elizabeth Eli (Duvie728)
 
 # Login Credentials
 
-<<<<<<< HEAD
-```
-{
-  "email": "admin@crypto.com",
-  "password": "admin"
+create your credentials and login
 =======
-Shout to Zuri team for the priviledge to learn coding. thank to all the mentor.
-God bless you
+Shout to Zuri team for the priviledge to learn coding. thank to all the mentors .
+God bless you all
 
 ```
 {
