@@ -7,17 +7,15 @@
 <br/><br/>
 
 <div class="form-group">
-<form method="post">{% csrf_token %} 
+<form action="" method="post">{% csrf_token %} 
     {{ form.as_p }}
     <button class="btn
-    btn-secondary">Add Comment</button>
+    btn-secondary"><input type="Add Comment" value="Save"></button>
     </form>
-    action = "{% url 'add_comment' post.pk%}"
+   action = "{% url 'add_comment' post.pk%}"
 </div>
 
 {% else %}
     <p>You are not logged in.</p>
     {% endif %}
     {% endblock content %}
-
-   

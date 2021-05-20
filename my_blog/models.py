@@ -12,7 +12,6 @@ class Post(models.Model):
         ('published', 'Published'),
     )
     title = models.CharField(max_length=200)
-    #slug = models.SlugField(max_length=250, unique_for_date='publish')
     publish_date = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(
         'auth.User', 
@@ -20,14 +19,6 @@ class Post(models.Model):
     )
     body = models.TextField()
     status = models.CharField(max_length=10, choices=options, default='draft')
-
-
-class Meta:
-    ordering = ('-publish',)
-
-    #def publish(self):
-      #  self.published_date = timezone.now()
-        #self.save()
 
     def __str__(self):
         return self.title
@@ -49,8 +40,9 @@ class Comment(models.Model):
         on_delete=models.CASCADE,
     )
     date_added = models.DateTimeField(default=timezone.now)
+    
     def __str__(self):
         return self.comment
 
     def get_absolute_url(self):
-        return reverse('home')
+        return reverse('home', args=[str(self.id)])
