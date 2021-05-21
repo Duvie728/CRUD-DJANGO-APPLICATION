@@ -27,8 +27,9 @@ class Post(models.Model):
         return reverse('post_detail', args=[str(self.id)])
 
 
+
 class Comment(models.Model):
-    Post = models.ForeignKey(
+    post = models.ForeignKey(
         Post,
          on_delete=models.CASCADE,
          related_name='comments',
@@ -42,7 +43,9 @@ class Comment(models.Model):
     date_added = models.DateTimeField(default=timezone.now)
     
     def __str__(self):
-        return self.comment
+        return '%s - %s' % (self.post.title, self.comment)
+       # return self.comment
+
 
     def get_absolute_url(self):
-        return reverse('home', args=[str(self.id)])
+        return reverse('home')

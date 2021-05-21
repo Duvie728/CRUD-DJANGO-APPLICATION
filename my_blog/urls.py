@@ -16,5 +16,5 @@ urlpatterns = [
     path('post/<int:pk>/edit/',
         BlogUpdateView.as_view(), name='post_edit'),
     path('', BlogListView.as_view(), name='home'),
-    path('post/<int:pk>/comment/', BlogCommentView.as_view(), name='add_comment'),
+    path('post/<int:pk>/comment/', BlogCommentView.as_view(), name='post_comment'),
 ]

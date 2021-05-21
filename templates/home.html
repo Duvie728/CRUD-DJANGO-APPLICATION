@@ -9,16 +9,18 @@
            <div class="date">
             {{ post.published_date }}
         </div>
+
+        <article>
+            <time>published: 14.05.2021, 12:14</time>
+         </article>
         <div>
        <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
+      
        <p>{{ post.body }}</p>
-       <p>{{ post.text|linebreaksbr }}</p>
-       <a href="{% url 'add_comment' post.pk %}">{{ post.comments.all }}</a>
-   </div>
-   <div>
-       <article>
-           <time>published: 14.06.2014, 12:14</time>
-        </article>
+       <p>{{ post.text|linebreaksbr }}
+       <a href="{% url 'post_edit' post.pk %}">Edit</a>
+       <a href="{% url 'post_delete' post.pk %}">Delete</a>
+       <a href="{% url 'post_comment' post.pk %}">{{ post.comments.all }}</a>
    </div>
    {% endfor %} 
 {% endblock content %}
