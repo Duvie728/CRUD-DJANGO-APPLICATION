@@ -17,10 +17,18 @@
        <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
       
        <p>{{ post.body }}</p>
-       <p>{{ post.text|linebreaksbr }}
+       <p>{{ post.text|linebreaksbr }}</p>
+       
        <a href="{% url 'post_edit' post.pk %}">Edit</a>
        <a href="{% url 'post_delete' post.pk %}">Delete</a>
-       <a href="{% url 'post_comment' post.pk %}">{{ post.comments.all }}</a>
+       
+        {% if post.comments.all.count  %}
+       <h4><span class="badge rounded-pill bg-secondary">{{ post.comments.all.count }}</span> Comment<h4>
+        {% else %}
+        <h4><span class="badge rounded-pill bg-secondary">{{ post.comments.all.count }}</span> Comment</h4>
+        {% endif %}
+       <a href="{% url 'post_detail' post.pk %}"></a>
+      
    </div>
    {% endfor %} 
 {% endblock content %}

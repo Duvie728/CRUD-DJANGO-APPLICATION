@@ -56,11 +56,12 @@ class BlogDeleteView(
         obj = self.get_object()
         return obj.author == self.request.user
 
-class BlogCommentView(LoginRequiredMixin, CreateView):
+class CommentCreateView(LoginRequiredMixin, CreateView):
     model = Comment
     fields = ['comment', 'author']
-    template_name = 'post_comment.html'
+    template_name = 'post_detail.html'
       
     def form_valid(self, form):
        form.instance.author = self.request.user
+       form.instance.post = Post.objects.get(pk=self.kwargs['post_pk'])
        return super().form_valid(form)

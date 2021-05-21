@@ -43,9 +43,9 @@ class Comment(models.Model):
     date_added = models.DateTimeField(default=timezone.now)
     
     def __str__(self):
-        return '%s - %s' % (self.post.title, self.comment)
-       # return self.comment
+        #return '%s - %s' % (self.post.title, self.comment)
+        return self.comment
 
 
     def get_absolute_url(self):
-        return reverse('home')
+        return reverse('post:post_detail', args=[str(self.post.pk)])

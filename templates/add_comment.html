@@ -1,0 +1,7 @@
+<h1>Add comment</h1>
+<form method="post" action="{% url 'add_comment' post_pk=post.pk %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <textarea name="comment" id="" cols="30" rows="10"></textarea>
+    <button class="btn btn-info" type="submit">Add Comment</button>
+</form>

@@ -3,7 +3,7 @@
 CRUD-DJANGO-BLOG
 
 # Description:
-This Blog application was  built using [Django Framework](https://www.django-rest-framework.org/) and  hosted on Heroku during production(https://duvie-blog.herokuapp.com) 
+This  is  a task given to the interns at ZURI TRAINING to build a  Blog Application using the CRUD functionality. Hence, this Blog application was  built using [Django ](https://www.djangoproject.com/) and  hosted on Heroku during production(https://duvie-blog.herokuapp.com) 
 
 
 # Features:
@@ -22,12 +22,25 @@ This Project requires the following Versions:
 
 
 # Installation:
-To install all dependencies in this project, open your terminal and run:
+This application was built using a virtual enviromment(VENV)
+To  create  and activate, the above virtual environment to install all dependencies in this project, open your terminal and run:
 ```
+^^^^ creating a virtual environment ^^^^
+py -m venv project-name
 
-py -m pip install.....
+^^^^âctivating a virtual environment ^^^^^
+project name\Scripts\activate.bat
+
+^^^^^installation of django and other dependencies ^^^^^^
+py -m pip install
+
+^^^^^local command for ruuning the application ^^^^^^
 python manage.py runserver
 ```
+
+#NOTE
+Refer to the ENV .example file  to generate secret key and other variables.
+
 
 ### To Contribute:
 Please always follow the right format in making pull request
@@ -49,5 +62,5 @@ create your credentials and login
 
 
 =======
-Shout to Zuri team for the priviledge to learn coding. thank to all the mentors .
+Shout to Zuri team for the priviledge to  be in the Tech space and learn coding. Thank  you to all the mentors.
 God bless you all

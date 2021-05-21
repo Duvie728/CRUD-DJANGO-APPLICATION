@@ -6,30 +6,64 @@
     <p>{{ post.body }}</p>
 </div>
 
+<div>
 <p><a href="{% url 'post_edit' post.pk %}">+ Edit Blog Post</a></p>
 <p><a href="{% url 'post_delete' post.pk %}">+ Delete Blog Post</a></p>
-<p><a href="{% url 'post_comment' post.pk %}">+ Post Comment</a></p>
+<p><a href="{% url 'add_comment' post_pk=post.pk %}">+ Add Comment</a></p>
 <p>Back to<a href="{% url 'home' %}">All Post</a>.</p>   
-   
+
 <hr>
 <br/><br/>
 <h2>Comments...</h2>
 
-{% if not  post.comments.all %}
-    No Comments Yet...<a href="{% url 'post_comment' post.pk %}">Add One</a>
+{% if post.comments.all.count  %}
+<h4><span class="badge rounded-pill bg-secondary">{{post.comments.all.count }}</span> Comment</h4>
+    No Comments Yet...<a href="{% url 'add_comment' post_pk=post.pk %}">Add One</a>
     {% else %}
-    <a href="{% url 'post_comment' post.pk %}"> Post Comment</a>
+    <h4><span class="badge rounded-pill bg-secondary">{{ post.comments.all.count }}</span> Comment's</h4>
+    <a href="{% url 'add_comment' post_pk=post.pk %}"> Post Comment</a>
+    {% endif %}
+</div>
+
+<div>
     {% for comment in post.comments.all %}
+    <p>
         <strong>{{ comment.author }} -
             {{ comment.date_added }}
+            {{ comment }}
         </strong>
         <br/>
         {{ comment.body}}
+    </p>
         <br/><br/>
 
         <hr>
         {% endfor %}
-    <a href="{% url 'post_comment' post.pk %}"> Post Comment</a>
+    <a href="{% url 'add_comment' post_pk=post.pk %}"> Add Comment</a>
+</div>
+    
+{% if user.is_authenticated %}
+<h2>Post Comment...</h2>
+<br/><br/>
+
+
+<form method="post" action="{% url 'add_comment' post_pk=post.pk %}">
+    {% csrf_token %} 
+    {{ form.as_p }}
+    <div class="form-group">
+        <textarea class="form-control border border-primary" name="comment" id="" cols="30" rows="10" required style="resize: none;"></textarea>
+    </div>
+
+    <div class="form-group"></div>
+        <button class="btn
+    btn-secondary" type="submit">Add Comment</button>
+</div>
+    </form>
+
+{% else %}
+<p>You are not logged in.</p>
+<a class= "btn btn-info mt-3" href="{% url 'login' %}"><Login to Comment></a>
     {% endif %}
-<br/>
+    
+
 {% endblock content %}
