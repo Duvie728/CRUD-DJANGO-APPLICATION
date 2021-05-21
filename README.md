@@ -22,8 +22,8 @@ This Project requires the following Versions:
 
 
 # Installation:
-This application was built using a virtual enviromment(VENV)
-To  create  and activate, the above virtual environment to install all dependencies in this project, open your terminal and run:
+This application was built using a virtual enviromment(VENV).
+To  create  and activate the above virtual environment to install all dependencies in this project, open your terminal and run:
 ```
 ^^^^ creating a virtual environment ^^^^
 py -m venv project-name
